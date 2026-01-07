@@ -1,13 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Allow API calls to backend - use environment variable for production
+  // In production, API calls go to the same domain (Vercel handles routing)
+  // In development, proxy to localhost:8000
   async rewrites() {
-    const backendUrl = process.env.BACKEND_URL || 'http://localhost:8000';
+    // If we're in production (Vercel), don't rewrite - use same domain
+    if (process.env.VERCEL) {
+      return [];
+    }
+    // In development, proxy to local backend
     return [
       {
         source: '/api/:path*',
-        destination: `${backendUrl}/api/:path*`,
+        destination: 'http://localhost:8000/api/:path*',
       },
     ];
   },
