@@ -5,6 +5,7 @@ from openai import OpenAI
 import os
 from pathlib import Path
 from dotenv import load_dotenv
+from mangum import Mangum
 
 # Load .env file from project root (parent of api directory)
 env_path = Path(__file__).parent.parent / '.env'
@@ -21,6 +22,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"]
 )
+
+# Create ASGI handler for Vercel
+handler = Mangum(app, lifespan="off")
 
 # Initialize OpenAI client lazily - will be created when needed if API key is available
 def get_openai_client():
