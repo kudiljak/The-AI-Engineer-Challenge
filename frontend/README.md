@@ -1,14 +1,14 @@
-# Space NASA Chat Frontend
+# Japanese Bonsai Chat Frontend
 
-A beautiful Next.js frontend application with a space/NASA theme that integrates with the FastAPI backend chat service. This application provides a supportive mental coach interface with animated starfield and a modern, accessible UI.
+A beautiful Next.js frontend application with a Japanese bonsai theme that integrates with the FastAPI backend chat service. This application provides a supportive mental coach interface with animated cherry blossom petals and a serene, accessible UI.
 
 ## Features
 
-- 🚀 **Space NASA Theme**: Immersive space aesthetic with deep space backgrounds, NASA red/orange accents, and animated twinkling stars
+- 🌸 **Japanese Bonsai Theme**: Serene aesthetic with natural earth tones, warm beige backgrounds, and animated falling cherry blossom petals
 - 💬 **Real-time Chat Interface**: Seamless integration with the backend API
 - 🎨 **Accessible Design**: High contrast colors, clear typography, and keyboard navigation
 - 📱 **Responsive Layout**: Works beautifully on desktop, tablet, and mobile devices
-- ✨ **Smooth Animations**: Twinkling starfield and smooth message transitions
+- ✨ **Smooth Animations**: Falling cherry blossom petals and smooth message transitions
 
 ## Prerequisites
 
@@ -60,16 +60,16 @@ The frontend will automatically reload when you make changes to the code.
 
 ## Color Scheme
 
-The application follows a consistent space/NASA color palette:
+The application follows a consistent Japanese bonsai color palette:
 
-- **Primary**: NASA red/orange (#FC3D21)
-- **Secondary**: NASA blue (#0B3D91)
-- **Accent**: Gold (#FFD700)
-- **Background**: Deep space gradient (dark blue-black #0A0E27 to #1A1F3A to NASA blue)
-- **Surface**: Dark space surfaces (#1A1F3A, #252B4A)
-- **Text**: White (#FFFFFF) and light blue-gray (#B8C5D6) for excellent contrast
+- **Primary**: Saddle brown (#8B4513) - bonsai trunk color
+- **Secondary**: Deep forest green (#2D5016) - bonsai leaves
+- **Accent**: Cherry blossom pink (#FFB6C1) - spring blossoms
+- **Background**: Natural beige gradient (#F5F5DC to #E8E4D8 to #F0EDE5) - paper-like texture
+- **Surface**: Warm cream and off-white (#FFF8E7, #F9F6F0) - traditional paper
+- **Text**: Dark brown (#2C2416) and medium brown (#5C4A37) for excellent contrast
 
-All colors are carefully chosen to ensure sufficient contrast for accessibility compliance while maintaining the immersive space atmosphere.
+All colors are carefully chosen to ensure sufficient contrast for accessibility compliance while maintaining the serene Japanese aesthetic.
 
 ## Project Structure
 
@@ -83,8 +83,8 @@ frontend/
 ├── components/
 │   ├── ChatInterface.tsx  # Main chat component
 │   ├── ChatInterface.module.css
-│   ├── Stars.tsx          # Animated starfield component
-│   └── Stars.module.css
+│   ├── CherryBlossoms.tsx # Animated cherry blossom petals component
+│   └── CherryBlossoms.module.css
 ├── package.json
 ├── next.config.js          # Next.js configuration
 ├── tsconfig.json           # TypeScript configuration

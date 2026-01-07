@@ -109,12 +109,12 @@ export default function ChatInterface() {
       <div className={styles.messagesContainer}>
         {messages.length === 0 && (
           <div className={styles.welcomeMessage}>
-            <div className={styles.welcomeIcon}>🚀</div>
-            <h2>Welcome to Space NASA Chat!</h2>
+            <div className={styles.welcomeIcon}>🌲</div>
+            <h2>Welcome to Japanese Bonsai Chat!</h2>
             <p>
-              I'm here to support you as your mental coach. Feel free to share
-              what's on your mind - whether it's stress, motivation, habits, or
-              building confidence. I'm here to help! 🌟
+              I'm here to support you as your mental coach. Like a carefully tended bonsai,
+              growth takes patience and care. Feel free to share what's on your mind - whether
+              it's stress, motivation, habits, or building confidence. I'm here to help! 🌸
             </p>
           </div>
         )}
@@ -181,7 +181,7 @@ export default function ChatInterface() {
           className={styles.sendButton}
           aria-label="Send message"
         >
-          {isLoading ? '⏳' : '🚀'}
+          {isLoading ? '⏳' : '🌸'}
         </button>
       </div>
     </div>
