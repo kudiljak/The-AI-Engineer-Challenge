@@ -51,8 +51,26 @@ export default function ChatInterface() {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.detail || 'Failed to get response');
+        let errorMessage = 'Failed to get response';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.detail || errorData.message || errorMessage;
+        } catch (parseError) {
+          // If response is not JSON, try to get text
+          const textError = await response.text().catch(() => '');
+          errorMessage = textError || `Server returned ${response.status}: ${response.statusText}`;
+        }
+        
+        // Provide helpful error messages
+        if (response.status === 0 || response.status === 500) {
+          if (errorMessage.includes('OPENAI_API_KEY')) {
+            errorMessage = 'Backend error: OpenAI API key not configured. Please set OPENAI_API_KEY environment variable.';
+          } else if (errorMessage.includes('Failed to fetch') || errorMessage.includes('NetworkError')) {
+            errorMessage = 'Cannot connect to backend. Please make sure the backend is running on http://localhost:8000';
+          }
+        }
+        
+        throw new Error(errorMessage);
       }
 
       const data = await response.json();
@@ -65,7 +83,12 @@ export default function ChatInterface() {
 
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : 'An error occurred';
+      let errorMessage = 'An error occurred';
+      if (err instanceof TypeError && err.message.includes('fetch')) {
+        errorMessage = 'Cannot connect to backend. Please make sure the backend is running on http://localhost:8000. Start it with: uv run uvicorn api.index:app --reload';
+      } else if (err instanceof Error) {
+        errorMessage = err.message;
+      }
       setError(errorMessage);
       console.error('Error sending message:', err);
     } finally {
