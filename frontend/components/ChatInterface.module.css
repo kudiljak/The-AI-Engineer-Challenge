@@ -92,8 +92,8 @@
 }
 
 .userMessage .messageContent {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-  color: white;
+  background: linear-gradient(135deg, var(--color-accent) 0%, #FF91A4 100%);
+  color: var(--color-text-primary);
   border-bottom-right-radius: 4px;
 }
 

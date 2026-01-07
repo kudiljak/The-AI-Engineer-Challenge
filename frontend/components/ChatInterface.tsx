@@ -110,10 +110,9 @@ export default function ChatInterface() {
         {messages.length === 0 && (
           <div className={styles.welcomeMessage}>
             <div className={styles.welcomeIcon}>🌲</div>
-            <h2>Welcome to Japanese Bonsai Chat!</h2>
+            <h2>Welcome to Hannibal Lecter Chat!</h2>
             <p>
-              I'm here to support you as your mental coach. Like a carefully tended bonsai,
-              growth takes patience and care. Feel free to share what's on your mind - whether
+              I'm here to support you as your mental coach. Feel free to share what's on your mind - whether
               it's stress, motivation, habits, or building confidence. I'm here to help! 🌸
             </p>
           </div>

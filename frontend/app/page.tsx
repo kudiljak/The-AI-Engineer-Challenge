@@ -12,7 +12,7 @@ export default function Home() {
       <div className={styles.container}>
         <header className={styles.header}>
           <h1 className={styles.title}>
-            🌸 Japanese Bonsai Chat 🌸
+            Hannibal Lecter Chat
           </h1>
           <p className={styles.subtitle}>
             Your supportive mental coach is here to help

@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
-  title: 'Japanese Bonsai Chat - Mental Coach',
-  description: 'A supportive mental coach in a serene Japanese bonsai setting',
+  title: 'Hannibal Lecter Chat - Mental Coach',
+  description: 'A supportive mental coach',
 };
 
 export default function RootLayout({
