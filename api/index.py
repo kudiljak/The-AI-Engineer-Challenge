@@ -3,8 +3,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 from openai import OpenAI
 import os
+from pathlib import Path
 from dotenv import load_dotenv
 
+# Load .env file from project root (parent of api directory)
+env_path = Path(__file__).parent.parent / '.env'
+load_dotenv(dotenv_path=env_path)
+# Also load from current directory as fallback
 load_dotenv()
 
 app = FastAPI()
@@ -30,6 +35,16 @@ class ChatRequest(BaseModel):
 @app.get("/")
 def root():
     return {"status": "ok"}
+
+@app.get("/api/health")
+def health():
+    """Health check endpoint that also shows if API key is configured"""
+    api_key = os.getenv("OPENAI_API_KEY")
+    return {
+        "status": "ok",
+        "api_key_configured": bool(api_key),
+        "api_key_length": len(api_key) if api_key else 0
+    }
 
 @app.post("/api/chat")
 def chat(request: ChatRequest):
