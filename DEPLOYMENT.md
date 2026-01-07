@@ -1,64 +1,67 @@
 # Deployment Guide
 
-## Deploying Frontend to Vercel
+## Deploying to Vercel
 
-The frontend is a Next.js application that needs to be deployed from the `frontend` directory.
+This project is configured to deploy both the frontend (Next.js) and backend (Python serverless functions) to Vercel in a single deployment.
 
-### Option 1: Deploy from Frontend Directory (Recommended)
+### Quick Deploy
 
-1. Navigate to the frontend directory:
-   ```bash
-   cd frontend
-   ```
-
-2. Deploy to Vercel:
+1. From the project root, run:
    ```bash
    vercel
    ```
 
-3. Follow the prompts. Vercel will automatically detect Next.js.
-
-### Option 2: Deploy from Root Directory
-
-If deploying from the root directory, you need to configure Vercel to use the frontend:
-
-1. From the root directory, run:
-   ```bash
-   vercel
-   ```
-
-2. When prompted, set:
-   - **Root Directory**: `frontend`
-   - Or use: `vercel --cwd frontend`
-
-### Backend Configuration
-
-The frontend expects the backend to be available. You have two options:
-
-#### Option A: Deploy Backend Separately
-
-1. Deploy your FastAPI backend to a service like:
-   - Railway
-   - Render
-   - Fly.io
-   - Or another Vercel deployment (separate project)
-
-2. Set the `BACKEND_URL` environment variable in Vercel:
-   - Go to your Vercel project settings
-   - Add environment variable: `BACKEND_URL=https://your-backend-url.com`
-
-#### Option B: Use Local Backend (Development Only)
-
-For local development, the frontend will connect to `http://localhost:8000` by default.
+2. Follow the prompts. Vercel will:
+   - Detect and build the Next.js frontend from `frontend/`
+   - Deploy Python serverless functions from `api/`
 
 ### Environment Variables
 
-In Vercel project settings, you may want to set:
-- `BACKEND_URL`: URL of your deployed backend (if different from localhost)
+**IMPORTANT**: You must set the OpenAI API key in Vercel:
+
+1. Go to your Vercel project dashboard
+2. Navigate to **Settings** → **Environment Variables**
+3. Add: `OPENAI_API_KEY` with your OpenAI API key value
+4. Redeploy after adding the variable
+
+### Project Structure
+
+- `frontend/` - Next.js frontend application
+- `api/chat.py` - Serverless function for chat endpoint
+- `api/health.py` - Serverless function for health check
+- `vercel.json` - Vercel configuration (routes frontend and API)
+
+### How It Works
+
+- Frontend routes (`/`) → Served by Next.js
+- API routes (`/api/chat`, `/api/health`) → Served by Python serverless functions
+- All on the same domain, no CORS issues
+
+### Local Development
+
+For local development:
+
+1. Start the backend:
+   ```bash
+   uv run uvicorn api.index:app --reload
+   ```
+
+2. Start the frontend:
+   ```bash
+   cd frontend
+   npm run dev
+   ```
+
+The frontend will automatically proxy API calls to `localhost:8000` in development.
 
 ### Troubleshooting
 
-If you see "status: ok" after deployment:
-- Make sure you're deploying from the `frontend` directory
-- Check that Vercel detected Next.js framework
-- Verify the build completed successfully in Vercel dashboard
+**If you see "status: ok" after deployment:**
+- The deployment is working, but you're hitting the wrong endpoint
+- Make sure you're accessing the root URL, not `/api/`
+- Check Vercel build logs for any errors
+
+**If API calls fail:**
+- Verify `OPENAI_API_KEY` is set in Vercel environment variables
+- Check the function logs in Vercel dashboard
+- Ensure the API routes are correctly configured in `vercel.json`
