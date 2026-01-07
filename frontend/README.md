@@ -1,14 +1,14 @@
-# Winter Wonderland Chat Frontend
+# Space NASA Chat Frontend
 
-A beautiful Next.js frontend application with a winter wonderland theme that integrates with the FastAPI backend chat service. This application provides a supportive mental coach interface with animated snowflakes and a modern, accessible UI.
+A beautiful Next.js frontend application with a space/NASA theme that integrates with the FastAPI backend chat service. This application provides a supportive mental coach interface with animated starfield and a modern, accessible UI.
 
 ## Features
 
-- ❄️ **Winter Wonderland Theme**: Beautiful snowy aesthetic with cool blues, whites, and animated snowflakes
+- 🚀 **Space NASA Theme**: Immersive space aesthetic with deep space backgrounds, NASA red/orange accents, and animated twinkling stars
 - 💬 **Real-time Chat Interface**: Seamless integration with the backend API
 - 🎨 **Accessible Design**: High contrast colors, clear typography, and keyboard navigation
 - 📱 **Responsive Layout**: Works beautifully on desktop, tablet, and mobile devices
-- ✨ **Smooth Animations**: Floating snowflakes and smooth message transitions
+- ✨ **Smooth Animations**: Twinkling starfield and smooth message transitions
 
 ## Prerequisites
 
@@ -60,15 +60,16 @@ The frontend will automatically reload when you make changes to the code.
 
 ## Color Scheme
 
-The application follows a consistent winter wonderland color palette:
+The application follows a consistent space/NASA color palette:
 
-- **Primary**: Soft ice blue (#4A90E2)
-- **Secondary**: Sky blue accent (#87CEEB)
-- **Background**: Alice blue gradient (#F0F8FF to #E0F2FE)
-- **Surface**: Pure white (#FFFFFF) with light blue tints
-- **Text**: Deep blue-gray (#1E3A5F) for excellent contrast
+- **Primary**: NASA red/orange (#FC3D21)
+- **Secondary**: NASA blue (#0B3D91)
+- **Accent**: Gold (#FFD700)
+- **Background**: Deep space gradient (dark blue-black #0A0E27 to #1A1F3A to NASA blue)
+- **Surface**: Dark space surfaces (#1A1F3A, #252B4A)
+- **Text**: White (#FFFFFF) and light blue-gray (#B8C5D6) for excellent contrast
 
-All colors are carefully chosen to ensure sufficient contrast for accessibility compliance.
+All colors are carefully chosen to ensure sufficient contrast for accessibility compliance while maintaining the immersive space atmosphere.
 
 ## Project Structure
 
@@ -82,8 +83,8 @@ frontend/
 ├── components/
 │   ├── ChatInterface.tsx  # Main chat component
 │   ├── ChatInterface.module.css
-│   ├── Snowflakes.tsx      # Animated snowflake component
-│   └── Snowflakes.module.css
+│   ├── Stars.tsx          # Animated starfield component
+│   └── Stars.module.css
 ├── package.json
 ├── next.config.js          # Next.js configuration
 ├── tsconfig.json           # TypeScript configuration

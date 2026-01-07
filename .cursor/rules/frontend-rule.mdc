@@ -1,6 +1,5 @@
 ---
-description: When designing a frontend or frontend components.
-globs: 
+description: Useful when you need to design a frontend
 alwaysApply: false
 ---
 ### Rules for Frontend
@@ -11,3 +10,9 @@ alwaysApply: false
 - You should use Next.js as it works best with Vercel. 
 - This frontend will ultimately be deployed on Vercel, but it should be possible to test locally. 
 - Always provide users with a way to run the created UI once you have created it.
+- You must define and follow a consistent theme (colors, typography, spacing).
+- Do not use arbitrary colors; all colors must belong to a defined colour scheme.
+- Use a limited color palette (primary, secondary/accent, background, surface, text).
+- Ensure sufficient contrast between text and background in all themes.
+- If multiple themes are used (e.g. light/dark), they must be consistent in hierarchy and spacing.
+- Do not rely on color alone to convey meaning (e.g. errors, warnings, success states).

@@ -86,8 +86,8 @@ export default function ChatInterface() {
       <div className={styles.messagesContainer}>
         {messages.length === 0 && (
           <div className={styles.welcomeMessage}>
-            <div className={styles.welcomeIcon}>❄️</div>
-            <h2>Welcome to your Winter Wonderland Chat!</h2>
+            <div className={styles.welcomeIcon}>🚀</div>
+            <h2>Welcome to Space NASA Chat!</h2>
             <p>
               I'm here to support you as your mental coach. Feel free to share
               what's on your mind - whether it's stress, motivation, habits, or
@@ -158,7 +158,7 @@ export default function ChatInterface() {
           className={styles.sendButton}
           aria-label="Send message"
         >
-          {isLoading ? '⏳' : '❄️'}
+          {isLoading ? '⏳' : '🚀'}
         </button>
       </div>
     </div>

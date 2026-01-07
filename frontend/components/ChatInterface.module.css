@@ -2,11 +2,11 @@
   display: flex;
   flex-direction: column;
   height: 600px;
-  background: var(--color-bg-secondary);
+  background: rgba(26, 31, 58, 0.9);
   border-radius: 16px;
-  box-shadow: 0 8px 32px var(--color-shadow);
+  box-shadow: 0 8px 32px var(--color-shadow), 0 0 60px rgba(252, 61, 33, 0.15);
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(252, 61, 33, 0.3);
   backdrop-filter: blur(10px);
 }
 
@@ -34,6 +34,7 @@
   font-size: 4rem;
   margin-bottom: var(--spacing-lg);
   animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(252, 61, 33, 0.6));
 }
 
 @keyframes float {
@@ -156,10 +157,10 @@
   align-items: center;
   gap: var(--spacing-sm);
   padding: var(--spacing-md);
-  background: #FEE2E2;
-  border: 2px solid #FCA5A5;
+  background: rgba(252, 61, 33, 0.2);
+  border: 2px solid var(--color-primary);
   border-radius: 8px;
-  color: #991B1B;
+  color: #FFB3A7;
   font-size: 0.9rem;
   margin-top: var(--spacing-sm);
 }
@@ -171,14 +172,14 @@
 .retryButton {
   margin-left: auto;
   padding: var(--spacing-xs) var(--spacing-md);
-  background: #DC2626;
+  background: var(--color-primary);
   color: white;
   font-size: 0.85rem;
   border-radius: 6px;
 }
 
 .retryButton:hover {
-  background: #B91C1C;
+  background: var(--color-primary-dark);
 }
 
 .inputContainer {
